@@ -1,0 +1,9 @@
+{% extends 'finance_app/base.html' %}
+{% block content %}
+<h3>AI Analytics</h3>
+{% if analysis.status == 'insufficient_data' %}<div class="alert alert-info">{{ analysis.message }}</div>
+{% else %}
+<div class="card p-4 mb-3"><h4>Predicted Next Month Spend: ₹{{ analysis.predicted_next_month|floatformat:2 }}</h4></div>
+<div class="card p-4"><h5>Suggestions:</h5><ul>{% for s in analysis.suggestions %}<li>{{ s }}</li>{% endfor %}</ul></div>
+{% endif %}
+{% endblock %}

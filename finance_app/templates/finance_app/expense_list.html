@@ -1,0 +1,6 @@
+{% extends 'finance_app/base.html' %}
+{% block content %}
+<h3>Expenses</h3><a href="{% url 'expense_add' %}" class="btn btn-primary mb-3">Add</a>
+<table class="table bg-white"><thead><tr><th>Title</th><th>Category</th><th>Amount</th><th>Date</th></tr></thead>
+<tbody>{% for e in expenses %}<tr><td>{{ e.title }}</td><td>{{ e.category }}</td><td>₹{{ e.amount }}</td><td>{{ e.date }}</td></tr>{% endfor %}</tbody></table>
+{% endblock %}
